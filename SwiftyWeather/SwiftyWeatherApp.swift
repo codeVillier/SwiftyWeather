@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct SwiftyWeatherApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WeatherView()
+                .modelContainer(for: Preference.self)
         }
+    }
+    
+    init() {
+        print(URL.applicationSupportDirectory.path(percentEncoded: false))
     }
 }
